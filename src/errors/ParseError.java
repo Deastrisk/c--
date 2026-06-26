@@ -1,3 +1,5 @@
+package errors;
+
 import token.Token;
 import token.TokenType;
 

@@ -1,4 +1,4 @@
 package token;
 
-public class Token {
+public record Token(Enum<?> token, Object value, long line) {
 }

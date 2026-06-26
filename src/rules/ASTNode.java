@@ -1,4 +1,4 @@
 package rules;
 
-public interface TreeNode {
+public sealed interface ASTNode permits Expr, Stmt {
 }

@@ -1,4 +1,14 @@
 package token;
 
 public enum TokenType {
+    KEYWORD, OPERATOR, PUNCTUATION, IDENTIFIER,
+
+    CHAR_LITERAL,
+    NUMBER_LITERAL,
+    STRING_LITERAL,
+
+    STR_FIELD_START,
+    STR_FIELD_END,
+
+    EOF;
 }
