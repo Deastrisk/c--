@@ -1,5 +1,5 @@
-# C--
-this is c with less features and some syntax taken/inspired from python.
+# C-- 
+C-- is an interpreted programming language made in java. Basically c with less features and some syntax taken/inspired from python.
 
 ## FEATURES
 - mathematics
