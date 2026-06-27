@@ -1,33 +1,39 @@
 import rules.Expr;
 import rules.Stmt;
 import token.*;
-
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
     public static boolean hadError = false;
 
     public static void main(String[] args) {
 
+        Main main = new Main();
         if (args.length == 1) {
+            String filename = args[0];
+
+            if (!filename.endsWith(".cmm")) {
+                System.err.println("Invalid file type. please provide a '.cmm' file.");
+                System.exit(65); // EX_DATAERR (incorrect user data)
+            }
+
             Runtime.getRuntime().addShutdownHook(new Thread(() -> {
                 System.out.println("\nProgram interrupted.");
+                main.cleanupResources();
             }));
 
-            run(args[0]);
+            main.run(args[0]);
         } else {
-            System.exit(64);
+            System.err.println("Usage: java -cp [path/to/Main/class] Main [path/to/file/filename.cmm]");
+            System.exit(64); // EX_USAGE (incorrect command usage)
         }
     }
 
-    public static void run(String sourceCode) {
-        (new Main()).compile(sourceCode);
+    public void run(String sourceCode) {
+        compile(sourceCode);
     }
 
     public void compile(String path) {
@@ -54,6 +60,11 @@ public class Main {
         }
     }
 
+    private void cleanupResources() {
+        System.out.flush();
+        System.err.flush();
+    }
+
     private void evaluate(List<Stmt> statements, Map<Expr, Integer> locals) {
         Interpreter interpreter = new Interpreter(locals);
         interpreter.interpret(statements);
@@ -66,18 +77,18 @@ public class Main {
 
     private List<Token> tokenize(Lexer lexer) throws IOException {
         List<Token> tokens = lexer.tokenize();
-        for (Token t : tokens) {
-            System.out.println(t);
-        }
+//        for (Token t : tokens) {
+//            System.out.println(t);
+//        }
         return tokens;
     }
 
     private List<Stmt> parse(List<Token> tokens) {
         Parser parser = new Parser(tokens);
         List<Stmt> statements = parser.parse();
-        for (Stmt t : statements) {
-            System.out.println(t);
-        }
+//        for (Stmt t : statements) {
+//            System.out.println(t);
+//        }
         return statements;
     }
 

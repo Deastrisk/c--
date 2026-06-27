@@ -3,6 +3,7 @@ double: num1;
 double: num2;
 
 while (true) {
+    # calculator options
     echo("\n+--- SIMPLE CALCULATOR ---+\n");
     echo("| 1. Addition\n");
     echo("| 2. Subtraction\n");
@@ -14,30 +15,36 @@ while (true) {
     echo("| choice (0-5): ");
     choice = (int) input();
 
+    # check if user inputs 0
     if (!choice) {
         break;
     }
 
+    # check for out of range user inputs
     if (choice < 0 || choice > 5) {
         echo("| Invalid choice");
         continue;
     }
 
+    # gets first number
     echo("| number 1: ");
     num1 = (double) input();
 
+    # gets second number
     echo("| number 2: ");
     num2 = (double) input();
 
     if (choice == 1) {
-        echo("| ADDITION RESULT: {num1 + num2}");
+        echo("| ADDITION RESULT: {num1 + num2}"); # addition
     } else if (choice == 2) {
-        echo("| SUBTRACTION RESULT: {num1 - num2}");
+        echo("| SUBTRACTION RESULT: {num1 - num2}"); # substraction
     } else if (choice == 3) {
-        echo("| MULTIPLY RESULT: {num1 * num2}");
+        echo("| MULTIPLY RESULT: {num1 * num2}"); # multiplication
     } else if (choice == 4) {
-        echo("| DIVISION RESULT: {num1 / num2}");
+        echo("| DIVISION RESULT: {num1 / num2}"); # division
     } else if (choice == 5) {
+
+        # power
         double: result = 1;
         for (int: i = 0; i < num2; i += 1) {
              result *= num1;
