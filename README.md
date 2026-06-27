@@ -19,7 +19,24 @@ this is c with less features and some syntax taken/inspired from python.
 - typecasting
 
 ## SYNTAX
-#### VARIABLE DECLARATION and DATATYPES
+#### MATHEMATICS
+supports addition ('+'), substraction ('-'), multiplication ('*'), and division ('/')
+```python
+int: num = 10 + 5;
+int: num = 10 - 5;
+int: num = 10 * 5;
+int: num = 10 / 5;
+```
+
+#### COMPARISON and EQUALITY
+Comparison and equality gives a boolean value (true or false). C-- supports equals ('=='), not equals ('!='), less than ('<'), less than or equal to ('<='), more than ('>'), more than or equal to ('>=')
+```python
+bool: result1 = 12 == 10; # false
+bool: result2 = 5 == 5; # true
+bool: result3 = 5 < 7; # true
+```
+
+#### DATATYPES, VARIABLE DECLARATION, and ASSIGNMENT
 ```python
 bool: boolean = true;
 int: integer_num = 1;
@@ -52,6 +69,10 @@ echo("a text");   # accepts string. result      : 'a text'
 echo(12);         # accepts all numbers. result : '12'
 echo(true);       # accepts bool. result        : 'true'
 echo();           # invalid! echo cannot be empty.
+
+# input always outputs a str
+echo("Input your text here: ");
+str: inputted_text = input();
 ```
 
 #### IF-ELSE
@@ -109,3 +130,11 @@ for (int: i = 1; i <= 10; i += 1) {
 
 #### TYPECASTING
 Typecasting changes the type of a value into another.
+```python
+float: decimal_number = 10.5;
+int: whole_number = (int) decimal_number;
+
+# typecasting a str into a number
+str: str_num = "10.15";
+double: num = (double) str_num;
+```
